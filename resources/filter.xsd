@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="filter" type="Filter"/>
+  <xs:complexType name="Filter">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="item" type="Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Item">
+    <xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+</xs:schema>
