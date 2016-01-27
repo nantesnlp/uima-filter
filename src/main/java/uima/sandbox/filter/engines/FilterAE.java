@@ -18,10 +18,9 @@ import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import uima.sandbox.filter.resources.FilterResource;
-import fr.univnantes.lina.UIMAProfiler;
 
 public class FilterAE extends JCasAnnotator_ImplBase {
-
+	
 	//resources
 	@ExternalResource(key=FilterResource.KEY_FILTERS)
 	private FilterResource filter;
@@ -102,7 +101,6 @@ public class FilterAE extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas cas) throws AnalysisEngineProcessException {
-		UIMAProfiler.getProfiler("AnalysisEngine").start(this, "process");
 		this.setFeature(cas);
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		AnnotationIndex<Annotation> index = cas.getAnnotationIndex(this.type);
@@ -132,7 +130,6 @@ public class FilterAE extends JCasAnnotator_ImplBase {
 		for (Annotation annotation : annotations) {
 			annotation.removeFromIndexes();
 		}
-		UIMAProfiler.getProfiler("AnalysisEngine").stop(this, "process");
-	}
+		}
 	
 }
